@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class GroundScript : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GroundScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             healthManager.RestHealth(100);
-            gameOver.SetActive(true);
+            SceneManager.LoadScene("GameOverMenu");
             
 
         }

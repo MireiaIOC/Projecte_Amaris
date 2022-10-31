@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class HealthManager : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class HealthManager : MonoBehaviour
         if (healthPlayer.health < 0) { healthPlayer.health = 0; }
 
 
+    }
+
+    void Update () 
+    { 
+    if  (healthPlayer.health <= 0)
+        {
+            SceneManager.LoadScene("GameOverMenu");
+        }
     }
 
 }

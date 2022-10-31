@@ -14,7 +14,7 @@ public class PlantScript : MonoBehaviour
     {
         if (collision.tag=="Player")
         {
-            healthManager.RestHealth(2);
+            healthManager.RestHealth(3);
             Debug.Log("planta");
 
         }
