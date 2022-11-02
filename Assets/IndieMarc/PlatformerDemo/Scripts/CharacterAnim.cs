@@ -44,6 +44,8 @@ namespace IndieMarc.Platformer
         {
             animator.SetTrigger("Jump");
         }
+
+        
     }
 
 }

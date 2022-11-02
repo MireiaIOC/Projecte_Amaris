@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
-    public float speed; 
 
-    private Animator anim;
+    public int health; 
 
-    void Start()
+
+    public void Damage(int damage)
     {
-        anim = GetComponent<Animator>();
-        anim.SetBool("isRunning", true);
+        health -= damage;
+        gameObject.GetComponent<Animation>().Play("CharacteAnimCrouch");
+        Debug.Log("damage TAKEN!");
+
     }
 
-    void Update()
+    public void Update()
     {
         if (health <= 0)
         {
             Destroy(gameObject);
         }
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        Debug.Log("damage TAKEN!");
-    }
 }

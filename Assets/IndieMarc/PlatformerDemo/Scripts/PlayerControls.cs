@@ -19,13 +19,13 @@ namespace IndieMarc.Platformer
         public KeyCode down_key;
         public KeyCode jump_key;
         public KeyCode action_key;
-
+        
         private Vector2 move = Vector2.zero;
         private bool jump_press = false;
         private bool jump_hold = false;
         private bool action_press = false;
         private bool action_hold = false;
-
+    
         private static Dictionary<int, PlayerControls> controls = new Dictionary<int, PlayerControls>();
 
         void Awake()
@@ -46,6 +46,7 @@ namespace IndieMarc.Platformer
             jump_press = false;
             action_hold = false;
             action_press = false;
+           
 
             if (Input.GetKey(left_key))
                 move += -Vector2.right;
@@ -63,6 +64,7 @@ namespace IndieMarc.Platformer
                 action_hold = true;
             if (Input.GetKeyDown(action_key))
                 action_press = true;
+           
 
             float move_length = Mathf.Min(move.magnitude, 1f);
             move = move.normalized * move_length;
