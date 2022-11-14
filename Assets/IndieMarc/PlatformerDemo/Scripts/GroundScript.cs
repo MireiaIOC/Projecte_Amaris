@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GroundScript : MonoBehaviour
 {
     HealthManager healthManager;
-    public GameObject gameOver;
+    //public GameObject gameOver;//
     private void Start()
     {
         healthManager = GameObject.FindWithTag("GameController").GetComponent<HealthManager>();
