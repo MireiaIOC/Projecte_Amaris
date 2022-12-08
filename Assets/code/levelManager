@@ -1,0 +1,81 @@
+using System;
+using UnityEngine;
+ 
+namespace Amaris
+{
+     public class LevelManager : Singleton<LevelManager>
+     {
+
+          public struct EstadistiquesJugador
+          {
+               public float m_tempsJugat;
+               public int m_morts;
+               public int m_enemicsMatats;
+          }
+ 
+          public enum EstatNivell
+          {
+               Cap,
+               Normal,
+               MovimentControlat,
+               Pausat,
+               Mort,
+               Acabat
+          }
+ 
+
+          protected EstatNivell m_estatNivell;
+ 
+          private EstadistiquesJugador m_estadistiques_nivell;
+ 
+          protected override void Awake()
+          {
+               base.Awake();
+               m_estatNivell = EstatNivell.None;
+          }
+ 
+          protected void Start()
+          {
+               Initialize();
+          }
+     
+          private void Initialize()
+          {
+               m_estadistiques_nivell = new PlayerLevelStatistics()
+               {
+                    m_morts = 0,
+                    m_tempsJugat = 0.0f,
+                    m_enemicsMatats = 0
+               };
+          }
+ 
+ 
+          protected void Update()
+          {
+               if ( m_estatNivell == EstatNivell.Normal)
+               {
+                    m_estadistiques_nivell.m_tempsJugat += Time.deltaTime;
+               }
+          }
+ 
+          private void ApareixerPersonatge()
+          {
+ 
+          }
+ 
+          public void OnJugadorMort()
+          {
+               m_estadistiques_nivell.m_morts++;
+          }
+ 
+          public void OnPausa()
+          {
+ 
+          }
+        
+          public void OnNivellAcabat()
+          {
+               GameManager.Instance.ToFiJoc();
+          }
+     }
+}

@@ -1,0 +1,38 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+ 
+namespace Amaris
+{
+     public enum GameState
+     	{
+          menuPrincipal,
+          iniciJoc,
+          fiJoc,
+          pausa,
+          sortir
+     	}
+ 
+     public class GameManager : PersistenSingleton<GameManager>
+     	{	
+     		public void ToMenuPrincipal()
+     		{
+     		}
+ 
+     		public void ToIniciJoc()
+     		{
+     		}
+     		
+     		public void ToFiJoc()
+     		{
+    		}
+
+    		public void ToPausa()
+     		{
+    		}
+ 
+     		public void ToSortir()
+     		{
+     		}
+		}
+}
